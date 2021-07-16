@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block containt %}
+<div class="container ">
+  <div class="p-4 m-4 col-lg-5 mx-auto bg-light border rounded pt-4">
+  <b><h3 class=" alert alert-light alert alert-light text-center border rounded ">CREAT ACCOUNT</h3></b>
+  {% for message in messages %}
+  <div class="alert alert-danger">
+    {{message}}
+  </div>
+  {% endfor %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="firstname" class="form-label "></label>
+    <input type="text" class="form-control form-control-sm"value="" name="username" id="username"placeholder="Username">
+    <div class="mb-3">
+      <label for="firstname" class="form-label "></label>
+      <input type="text" class="form-control form-control-sm"value="" name="first_name" id="firstname"placeholder="First Name">
+      <div class="mb-3">
+        <label for="lastname" class="form-label "></label>
+        <input type="text" class="form-control form-control-sm"value=""name="last_name" id="lastname"placeholder="Last Name">
+        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label "></label>
+          <input type="email" class="form-control form-control-sm"value="" name="email" id="exampleInputEmail1 " placeholder="Email address" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"></label>
+      <input type="password" class="form-control form-control-sm"name="password1" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"></label>
+      <input type="password" class="form-control form-control-sm"name="password2" id="exampleInputPassword2" placeholder="Conform Password">
+    </div>
+    <button type="submit" class=" btn btn-info btn btn-center col-lg-12">Creat An Account</button>
+  </form>
+</div>
+</div>
+
+{% endblock %}

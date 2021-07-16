@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block containt %}
+
+<div class="container">
+  {% for message in messages %}
+      <div class="alert alert-success">
+        {{message}}
+      </div>
+      {% endfor %}
+      <form method="POST" class="post-form" action="">  
+        {% csrf_token %}
+      {{form.as_p}}
+      <button style="float: right;" type="submit" class="btn btn-danger">Update</button>
+    </form>
+    </div>
+{% endblock %}

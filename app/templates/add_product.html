@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block containt %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto">
+
+            <form method="POST" class="post-form" action="">  
+                {% csrf_token %} 
+            <h3 class="alert alert-info text-center">Enter Product</h3>    
+            {{form.as_p}}
+          <button type="submit" class="btn btn-primary">Submit</button> 
+        </form> 
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

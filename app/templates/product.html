@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block containt %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto">
+          <h3 class="alert alert-info text-center">Show Product Information</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for prd in product %}    
+                  <tr>
+                    <th>{{prd.id}}</th>
+                    <td>{{prd.name}}</td>
+                    <td>{{prd.weight}}</td>
+                    <td>{{prd.price}}</td>
+                    <td>
+                      <a href="/edit_product/{{ prd.id }}" class="btn btn-warning">Edit</a>
+                      <form action="/delete_product/{{ prd.id }}" method="post" class="d-inline" > 
+                        {% csrf_token %} 
+                      <input type="submit" value="Delete" class="btn btn-danger"> 
+                      </form>
+                    </td>  
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block containt %}
+
+<div class="container">
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% for message in messages %}
+  <div class="alert alert-success">
+    {{message}}
+  </div>
+  {% endfor %}
+
+<div class="mb-3">
+    <label  class="form-label">Title</label>
+    <input type="text" class="form-control"  name="title">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Created_At</label>
+    <input type="date" class="form-control" name="creat_at">
+  </div>
+  <button type="submit" class="btn btn-success">POST</button>
+</form>
+</div>
+
+{% endblock %}
